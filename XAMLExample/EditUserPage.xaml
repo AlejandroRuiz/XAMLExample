@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XAMLExample.EditUserPage">
+	<ContentPage.Content>
+		<StackLayout Padding="20" Spacing = "20" VerticalOptions="Center">
+			<Entry Keyboard="Default" Placeholder="Name" Text="{Binding Name, Mode=TwoWay}" />
+			<Entry Keyboard="Numeric" Placeholder="Age" Text="{Binding Age, Mode=TwoWay}" />
+			<Button Text="Save" Command="{Binding SaveCommand}" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

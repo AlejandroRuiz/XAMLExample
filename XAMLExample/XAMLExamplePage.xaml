@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:XAMLExample"
+		x:Class="XAMLExample.XAMLExamplePage"
+		BackgroundColor="White"
+		Title = "XAML Example">
+	<StackLayout Spacing="0">
+		<Button Text="Add New User" Command="{Binding AddCommand}" />
+		<ListView RowHeight="80" ItemsSource="{x:Static local:PeopleContainer.Records}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<ViewCell.View>
+							<StackLayout Padding="10" Spacing="2">
+								<Label FontSize = "20" Text="{Binding Name}" TextColor="Black"  />
+								<Label FontSize = "10" Text="{Binding Age}" TextColor="Gray" />
+							</StackLayout>
+						</ViewCell.View>
+						<ViewCell.ContextActions>
+							<MenuItem Text="Edit" IsDestructive="false" CommandParameter="{Binding .}" Command="{Binding EditCommand}"  />
+							<MenuItem Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" Command="{Binding DeleteCommand}"   />
+						</ViewCell.ContextActions>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</ContentPage>
